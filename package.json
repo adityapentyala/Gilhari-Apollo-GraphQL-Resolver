@@ -1,7 +1,9 @@
 {
   "dependencies": {
     "@apollo/server": "^4.10.4",
-    "graphql": "^16.8.2"
+    "axios": "^1.7.2",
+    "graphql": "^16.8.2",
+    "jquery-csv": "^1.0.21"
   },
   "name": "gilhariapollographql",
   "version": "1.0.0",
