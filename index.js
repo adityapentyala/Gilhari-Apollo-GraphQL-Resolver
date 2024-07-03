@@ -1,23 +1,9 @@
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
-import { typeDefs } from './schema';
+import { typeDefs } from './schema.js';
+import { resolvers } from './resolver.js';
 
-const books = [
-    {
-      title: 'The Awakening',
-      author: 'Kate Chopin',
-    },
-    {
-      title: 'City of Glass',
-      author: 'Paul Auster',
-    },
-  ];
 
-const resolvers = {
-    Query: {
-      books: () => books,
-    },
-  };
 
 // The ApolloServer constructor requires two parameters: your schema
 // definition and your set of resolvers.
