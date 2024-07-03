@@ -1,4 +1,4 @@
-JDX_DATABASE JDX:jdbc:sqlite:./config/gilhariexample.db;USER=sa;PASSWORD=sa;JDX_DBTYPE=SQLITE;DEBUG_LEVEL=5
+JDX_DATABASE JDX:jdbc:sqlite:./config/graphql.db;USER=sa;PASSWORD=sa;JDX_DBTYPE=SQLITE;DEBUG_LEVEL=5
 JDBC_DRIVER org.sqlite.JDBC
 
 ;
@@ -18,4 +18,19 @@ CLASS org.models.JSON_Employee TABLE Employees
   // Now provide the rest of the mapping specification for this class
   PRIMARY_KEY id
   SQLMAP FOR compensation COLUMN_NAME salary
+;
+
+CLASS org.models.JSON_Book TABLE Books
+
+  // First declare all the persistent JSON properties using VIRTUAL_ATTRIB specifications
+  VIRTUAL_ATTRIB ID ATTRIB_TYPE int
+  VIRTUAL_ATTRIB Title ATTRIB_TYPE java.lang.String
+  VIRTUAL_ATTRIB Author ATTRIB_TYPE java.lang.String
+  VIRTUAL_ATTRIB Genre ATTRIB_TYPE java.lang.String
+  VIRTUAL_ATTRIB SubGenre ATTRIB_TYPE java.lang.String
+  VIRTUAL_ATTRIB Height ATTRIB_TYPE int
+  VIRTUAL_ATTRIB Publisher ATTRIB_TYPE java.lang.String
+
+  // Now provide the rest of the mapping specification for this class
+  PRIMARY_KEY ID
 ;
