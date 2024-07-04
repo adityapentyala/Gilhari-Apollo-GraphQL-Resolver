@@ -7,11 +7,11 @@ export const typeDefs = `#graphql
 
   # This "Book" type defines the queryable fields for every book in our data source.
   type Book {
-    #Id: ID,
+    ID: Int,
     Title: String,
     Author: String,
     Genre: String,
-    Subgenre: String,
+    SubGenre: String,
     Height: Int,
     Publisher: String
   }
