@@ -4,3 +4,7 @@
 /Gilhari/libs/
 /Gilhari/bin/
 *.jar
+*.create
+*.alter
+*.drop
+*.db
