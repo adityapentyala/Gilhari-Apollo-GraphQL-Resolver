@@ -24,6 +24,7 @@ axios.get(BASE_URL+'Books/')
         const responseData = response.data;
         // Process the response data here
         console.log(responseData)
+        return responseData
     })
     .catch(error => {
         // Handle any errors
