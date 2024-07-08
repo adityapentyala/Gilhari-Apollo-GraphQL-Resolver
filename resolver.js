@@ -25,20 +25,16 @@ export const resolvers = {
     },
   };
 
+/** 
+* Sends a GET request to the Gilhari microservice API and returns list of JSON objects that
+* meet the filter criterion, if any. Though it takes in a list of conditions, only the first
+* is filtered for since using Gilhari's operationDetails is not possible within the body of a
+* GET request.
+* @param {string} endpoint The table name endpoint from which data is to be returned
+* @param {object} args List of conditions on fields of the object being queried
+* @returns {Promise} List of JSON objects from database
+*/
 function gilhariAPIGet(endpoint, args) {
-  /*
-  Sends a GET request to the Gilhari microservice API and returns list of JSON objects that
-  meet the filter criterion, if any. Though it takes in a list of conditions, only the first
-  is filtered for since using Gilhari's operationDetails is not possible within the body of a
-  GET request.
-
-  Args:
-    endpoint <str>: The table name endpoint from which data is to be returned
-    args <object>: List of conditions on fields of the object being queried
-  
-  Returns:
-    Promise<object>
-  */
   const keys = Object.keys(args)
   if (keys.length){
     const key = keys[0]
