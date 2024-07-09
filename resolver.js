@@ -27,31 +27,31 @@ export const resolvers = {
 
 /** 
 * Sends a GET request to the Gilhari microservice API and returns list of JSON objects that
-* meet the filter criterion, if any. Though it takes in a list of conditions, only the first
-* is filtered for since using Gilhari's operationDetails is not possible within the body of a
-* GET request.
+* meet the filter criterion, if any. 
 * @param {string} endpoint The table name endpoint from which data is to be returned
 * @param {object} args List of conditions on fields of the object being queried
-* @returns {Promise} List of JSON objects from database
+* @returns {Promise<object>} List of JSON objects from database
 */
 function gilhariAPIGet(endpoint, args) {
   const keys = Object.keys(args)
   if (keys.length){
-    const key = keys[0]
-    const val = args[key]
-    console.log(key, val, typeof val)
-    if (typeof val === 'string'){
-      return axios.get(BASE_URL+endpoint+"?filter="+key+"='"+val+"'")
-      .then(response => response.data)
-      .catch(err => err)
-    } else {
-      return axios.get(BASE_URL+endpoint+"?filter="+key+"="+val.toString())
-      .then(response => response.data)
-      .catch(err => err)
+    var filterString="?filter="
+    for (var i=0; i<keys.length; i++){
+      if (i!=0){
+        filterString+="+AND+"
+      }
+      const val= args[keys[i]]
+      if (typeof val === 'string'){
+        filterString+=keys[i]+"='"+val+"'"
+      } else {
+        filterString+=keys[i]+"="+val.toString()
+      }
     }
+    return axios.get(BASE_URL+endpoint+filterString)
+    .then(response => response.data)
+    .catch(err => err)
   }
   return axios.get(BASE_URL+endpoint)
   .then(response => response.data)
   .catch(err => err)
 }
-  
