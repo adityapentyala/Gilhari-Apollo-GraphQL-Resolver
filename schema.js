@@ -23,4 +23,18 @@ export const typeDefs = `#graphql
     books(ID: Int, Height: Int,Author: String, Genre: String, SubGenre: String, Publisher: String, Title: String): [Book],
     #employee: [Employee]
   }
+
+  type Mutation {
+    addBook(book: AddBookInput): Book
+    deleteBook(ID: ID!): [Book]
+  }
+
+  input AddBookInput {
+    Title: String!
+    Author: String!
+    Genre: String!
+    SubGenre: String!
+    Publisher: String!
+    Height: Int!
+  }
 `;

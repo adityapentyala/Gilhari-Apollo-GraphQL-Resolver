@@ -23,6 +23,12 @@ export const resolvers = {
         return gilhariAPIGet("Books", args)
       },
     },
+
+    Mutation: {
+      addBook(_, args){
+        return gilhariAPIPost("Books", args)
+      }
+    }
   };
 
 /** 
@@ -54,4 +60,20 @@ function gilhariAPIGet(endpoint, args) {
   return axios.get(BASE_URL+endpoint)
   .then(response => response.data)
   .catch(err => err)
+}
+
+/**
+ * Sends a POST request to the Gilhari microservice API, allowing one to add a new object to the
+ * table specified
+ * @param {String} endpoint The table name endpoint to which data is to be added
+ * @param {object} args List of arguments that form the object to be added
+ * @returns {Promise<AxiosResponse>}
+ */
+function gilhariAPIPost(endpoint, args){
+  let book = {
+    ...args.book,
+    ID: Math.floor(Math.random()*10000)
+  }
+  console.log(book)
+  return axios.post(BASE_URL+endpoint, {"entity":book})
 }
