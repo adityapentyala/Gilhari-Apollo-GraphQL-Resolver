@@ -81,7 +81,7 @@ function gilhariAPIGet(endpoint, args) {
  * table specified
  * @param {String} endpoint The table name endpoint to which data is to be added
  * @param {object} args List of arguments that form the object to be added
- * @returns {Promise<AxiosResponse>}
+ * @returns {Promise<AxiosResponse>} The newly created object
  */
 function gilhariAPIPost(endpoint, args){
   let book = {
@@ -97,7 +97,7 @@ function gilhariAPIPost(endpoint, args){
  * Updates the record at a specified ID vith new values passed as updations
  * @param {string} endpoint The table name endpoint at which data is to be updated
  * @param {object} args arguments passed to the function. Must include ID and updations
- * @returns {Promise<object>}
+ * @returns {Promise<object>} List containing the newly updated object
  */
 function gilhariAPIPatch(endpoint, args){
   console.log(args.ID, args.updations, args.updations[0], args[0])
@@ -109,7 +109,12 @@ function gilhariAPIPatch(endpoint, args){
   axios.patch(BASE_URL+endpoint+"?filter=ID="+args.ID.toString(), {"newValues":newValues})
   return gilhariAPIGet(endpoint, {ID:args.ID})
 }
-
+/**
+ * Deletes an object specified by its ID
+ * @param {string} endpoint The table name endpoint at which data is to be updated
+ * @param {object} args arguments passed to the function. Must include ID 
+ * @returns {Promise<object>} Empty list which previously held the object
+ */
 function gilhariAPIDelete(endpoint, args){
   console.log(args)
   const response = axios.delete(BASE_URL+endpoint+"?filter=id="+args.ID.toString())
