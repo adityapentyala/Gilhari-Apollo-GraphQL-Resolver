@@ -30,6 +30,9 @@ export const resolvers = {
       },
       updateBook(_, args){
         return gilhariAPIPatch("Books", args)
+      },
+      deleteBook(_, args){
+        return gilhariAPIDelete("Books", args)
       }
     }
   };
@@ -105,4 +108,13 @@ function gilhariAPIPatch(endpoint, args){
   }
   axios.patch(BASE_URL+endpoint+"?filter=ID="+args.ID.toString(), {"newValues":newValues})
   return gilhariAPIGet(endpoint, {ID:args.ID})
+}
+
+function gilhariAPIDelete(endpoint, args){
+  console.log(args)
+  const response = axios.delete(BASE_URL+endpoint+"?filter=id="+args.ID.toString())
+  .then(response=>response.data)
+  .catch(err=>err)
+  console.log(response)
+  return(gilhariAPIGet(endpoint, {ID:args.ID}))
 }
