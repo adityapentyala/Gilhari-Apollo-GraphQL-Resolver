@@ -22,4 +22,24 @@ Run the command `npm i` or `npm install` to install all dependencies from `packa
 If this is the first time running this project after setting up Gilhari, or after creating a new database, run the command `node populateDatabase.js` to run the script file that populates the database with `Book` objects.
 ### Running Apollo Server
 Run the command `node index.js` or `npm start` to expose the server at http://localhost:4000. You may run queries in the interactive playground provided by opening the link in a browser.
-![Apollo Playground at localhost:4000](assets/image.png)
+![Apollo Playground at localhost:4000](assets/server.png)
+
+## Example Queries & Mutations for CRUD Operations
+### Read
+![alt text](assets/read1.png)
+![alt text](assets/read2.png)
+![alt text](assets/read3.png)
+![alt text](assets/read4.png)
+
+### Create
+![alt text](assets/creation1.png)
+![alt text](assets/creation2.png)
+
+### Update
+![alt text](assets/update1.png)
+![alt text](assets/update2.png)
+
+### Delete
+![alt text](assets/deletion1.png)
+![alt text](assets/deletion2.png)
+![alt text](assets/deletion3.png)
