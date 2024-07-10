@@ -28,8 +28,8 @@ export const resolvers = {
       addBook(_, args){
         return gilhariAPIPost("Books", args)
       },
-      deleteBook(_, args){
-        return
+      updateBook(_, args){
+        return gilhariAPIPatch("Books", args)
       }
     }
   };
@@ -90,3 +90,19 @@ function gilhariAPIPost(endpoint, args){
   return book
 }
 
+/**
+ * Updates the record at a specified ID vith new values passed as updations
+ * @param {string} endpoint The table name endpoint at which data is to be updated
+ * @param {object} args arguments passed to the function. Must include ID and updations
+ * @returns {Promise<object>}
+ */
+function gilhariAPIPatch(endpoint, args){
+  console.log(args.ID, args.updations, args.updations[0], args[0])
+  const keys = Object.keys(args.updations)
+  var newValues=[]
+  for (var i=0; i<keys.length; i++){
+    newValues.push(keys[i], args.updations[keys[i]])
+  }
+  axios.patch(BASE_URL+endpoint+"?filter=ID="+args.ID.toString(), {"newValues":newValues})
+  return gilhariAPIGet(endpoint, {ID:args.ID})
+}
