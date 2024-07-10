@@ -27,9 +27,37 @@ export const resolvers = {
     Mutation: {
       addBook(_, args){
         return gilhariAPIPost("Books", args)
+      },
+      deleteBook(_, args){
+        return
       }
     }
   };
+
+/**
+ * Returns the string of filters to be appended to the URI 
+ * @param {object} args List of conditions on fields of the object being queried
+ * @returns {String}
+ */
+function getFilterString(args) {
+  const keys = Object.keys(args)
+  if (keys.length==0){
+    return ""
+  }
+  var filterString="?filter="
+  for (var i=0; i<keys.length; i++){
+    if (i!=0){
+      filterString+="+AND+"
+    }
+    const val= args[keys[i]]
+    if (typeof val === 'string'){
+      filterString+=keys[i]+"='"+val+"'"
+    } else {
+      filterString+=keys[i]+"="+val.toString()
+    }
+  }
+  return filterString
+}
 
 /** 
 * Sends a GET request to the Gilhari microservice API and returns list of JSON objects that
@@ -39,25 +67,8 @@ export const resolvers = {
 * @returns {Promise<object>} List of JSON objects from database
 */
 function gilhariAPIGet(endpoint, args) {
-  const keys = Object.keys(args)
-  if (keys.length){
-    var filterString="?filter="
-    for (var i=0; i<keys.length; i++){
-      if (i!=0){
-        filterString+="+AND+"
-      }
-      const val= args[keys[i]]
-      if (typeof val === 'string'){
-        filterString+=keys[i]+"='"+val+"'"
-      } else {
-        filterString+=keys[i]+"="+val.toString()
-      }
-    }
-    return axios.get(BASE_URL+endpoint+filterString)
-    .then(response => response.data)
-    .catch(err => err)
-  }
-  return axios.get(BASE_URL+endpoint)
+  var filterString=getFilterString(args)
+  return axios.get(BASE_URL+endpoint+filterString)
   .then(response => response.data)
   .catch(err => err)
 }
@@ -75,5 +86,7 @@ function gilhariAPIPost(endpoint, args){
     ID: Math.floor(Math.random()*10000)
   }
   console.log(book)
-  return axios.post(BASE_URL+endpoint, {"entity":book})
+  axios.post(BASE_URL+endpoint, {"entity":book})
+  return book
 }
+
