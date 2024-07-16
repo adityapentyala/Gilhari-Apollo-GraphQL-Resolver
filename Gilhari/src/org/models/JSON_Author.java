@@ -10,13 +10,13 @@ import com.softwaretree.jdx.JDX_JSONObject;
  *
  *
  */
-public class JSON_Employee extends JDX_JSONObject {
+public class JSON_Author extends JDX_JSONObject {
 
-    public JSON_Employee() {
+    public JSON_Author() {
         super();
     }
 
-    public JSON_Employee(JSONObject jsonObject) throws JSONException {
+    public JSON_Author(JSONObject jsonObject) throws JSONException {
         super(jsonObject);
     }
 }
