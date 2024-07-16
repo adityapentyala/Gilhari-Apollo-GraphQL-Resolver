@@ -9,11 +9,17 @@ export const typeDefs = `#graphql
   type Book {
     ID: Int,
     Title: String,
-    Author: String,
+    Auth_ID: Int,
     Genre: String,
     SubGenre: String,
     Height: Int,
-    Publisher: String
+    Publisher: String,
+    Author: Author
+  }
+
+  type Author{
+    ID: Int,
+    Name: String
   }
 
   # The "Query" type is special: it lists all of the available queries that
@@ -21,18 +27,21 @@ export const typeDefs = `#graphql
   # case, the "books" query returns an array of zero or more Books (defined above).
   type Query {
     books(ID: Int, Height: Int,Author: String, Genre: String, SubGenre: String, Publisher: String, Title: String): [Book],
-    #employee: [Employee]
+    authors(ID: Int, Name: String): [Author]
   }
 
   type Mutation {
     addBook(book: AddBookInput): Book
     deleteBook(ID: Int!): [Book]
     updateBook(ID: Int!, updations: EditBookInput): [Book]
+    addAuthor(author: AddAuthorInput): Author
+    updateAuthor(ID: Int!, updations: EditAuthorInput): [Author]
+    deleteAuthor(ID: Int!): [Author]
   }
 
   input AddBookInput {
     Title: String!
-    Author: String!
+    Auth_ID: Int!
     Genre: String!
     SubGenre: String!
     Publisher: String!
@@ -41,10 +50,19 @@ export const typeDefs = `#graphql
 
   input EditBookInput {
     Title: String
-    Author: String
+    Auth_ID: Int
     Genre: String
     SubGenre: String
     Publisher: String
     Height: Int
+  }
+
+  input AddAuthorInput {
+    ID: Int!
+    Name: String!
+  }
+
+  input EditAuthorInput {
+    Name: String
   }
 `;

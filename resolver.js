@@ -22,6 +22,10 @@ export const resolvers = {
         console.log(args)
         return gilhariAPIGet("Books", args)
       },
+      authors(_, args){
+        console.log(args)
+        return gilhariAPIGet("Authors", args)
+      }
     },
 
     Mutation: {
