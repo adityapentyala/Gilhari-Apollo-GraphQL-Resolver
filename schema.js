@@ -58,7 +58,6 @@ export const typeDefs = `#graphql
   }
 
   input AddAuthorInput {
-    ID: Int!
     Name: String!
   }
 
