@@ -29,7 +29,6 @@ Run the command `node index.js` or `npm start` to expose the server at http://lo
 ![alt text](assets/read1.png)
 ![alt text](assets/read2.png)
 ![alt text](assets/read3.png)
-![alt text](assets/read4.png)
 
 ### Create
 ![alt text](assets/creation1.png)
@@ -49,12 +48,12 @@ The "N+1 problem" is a common issue in software development, particularly in the
 `userlist = SELECT * FROM users;`\
 `FOR user IN userlist {`\
     `user.posts = SELECT * FROM posts WHERE user_id = ?;`\
-`}`
+`}`\
 The first query runs once. However, if there are N users, the second query to get all posts runs N times - giving rise to the N+1 problem.
 
 The same issue occurs when the data source is a REST API - firstly, a GET request to get all users at `BASE_URL/users`, then GET requests for each id at `BASE_URL/users/user_id/posts`.
 
- This approach can lead to performance issues due to the large number of database round-trips, especially if N is large.
+This approach can lead to performance issues due to the large number of database round-trips, especially if N is large.
 
 Gilhari solves this issue in the way that it makes database queries - consider the following GraphQL query to get books and their ID, Title and Author details:
 ![alt text](assets/nplus1_1.png)

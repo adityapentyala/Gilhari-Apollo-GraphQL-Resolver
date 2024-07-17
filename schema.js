@@ -26,7 +26,7 @@ export const typeDefs = `#graphql
   # clients can execute, along with the return type for each. In this
   # case, the "books" query returns an array of zero or more Books (defined above).
   type Query {
-    books(ID: Int, Height: Int,Author: String, Genre: String, SubGenre: String, Publisher: String, Title: String): [Book],
+    books(ID: Int, Height: Int, Auth_ID: Int , Genre: String, SubGenre: String, Publisher: String, Title: String): [Book],
     authors(ID: Int, Name: String): [Author]
   }
 
