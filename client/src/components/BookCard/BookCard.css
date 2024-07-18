@@ -1,0 +1,22 @@
+/* src/BookCard.css */
+
+.book-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 200px;
+    text-align: center;
+    margin: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.book-image {
+    width: 100%;
+    height: auto;
+}
+
+.book-details {
+    padding: 16px;
+}

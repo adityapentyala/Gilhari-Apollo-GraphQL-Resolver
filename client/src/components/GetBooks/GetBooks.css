@@ -1,0 +1,5 @@
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columns */
+    gap: 16px; /* Space between cards */
+}
