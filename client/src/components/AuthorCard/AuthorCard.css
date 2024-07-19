@@ -1,4 +1,4 @@
-.book-card {
+.author-card {
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -10,11 +10,11 @@
     flex-direction: column;
 }
 
-.book-image {
+.author-image {
     width: 100%;
     height: auto;
 }
 
-.book-details {
+.author-details {
     padding: 16px;
 }
