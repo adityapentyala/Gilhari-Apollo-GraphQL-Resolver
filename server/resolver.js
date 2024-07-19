@@ -98,6 +98,7 @@ function gilhariAPIGet(endpoint, args) {
  * @returns {Promise<AxiosResponse>} The newly created object
  */
 function gilhariAPIPost(endpoint, object, args){
+  console.log(args)
   let jsonObject = {
     ...args[object],
     ID: Math.floor(Math.random()*10000)
