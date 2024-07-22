@@ -19,7 +19,7 @@ export function GetAuthors(){
             authors.map((author, index)=> {
                 console.log(author)
                 return (<div>
-                    <AuthorCard key={index} name={author.Name} />
+                    <AuthorCard key={index} name={author.Name} ID={author.ID}/>
                 </div>)
             }
         )}

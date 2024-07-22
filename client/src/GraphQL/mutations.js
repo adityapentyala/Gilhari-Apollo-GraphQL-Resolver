@@ -9,6 +9,23 @@ export const newAuthor = gql`
     }
 `
 
+export const updateAuthorDetails = gql`
+    mutation updateAuthor($id: Int!, $name: String) {
+        updateAuthor(ID: $id, updations: {Name: $name}){
+            ID
+            Name
+        }
+    }
+`
+
+export const deleteAuthorDetails = gql`
+    mutation deleteAuthor($id: Int!){
+        deleteAuthor(ID: $id) {
+            Name
+        }
+}
+`
+
 export const newBook = gql`
     mutation addBook($height: Int!, $auth_id: Int!, $genre:String!, 
         $subGenre: String!, $title: String!,$publisher: String!){
