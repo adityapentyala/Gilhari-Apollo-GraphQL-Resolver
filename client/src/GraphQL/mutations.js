@@ -8,3 +8,17 @@ export const newAuthor = gql`
         }
     }
 `
+
+export const newBook = gql`
+    mutation addBook($height: Int!, $auth_id: Int!, $genre:String!, 
+        $subGenre: String!, $title: String!,$publisher: String!){
+        addBook(book:{Auth_ID:$auth_id, Height:$height, Genre:$genre, 
+        SubGenre: $subGenre, Publisher: $publisher, Title:$title}){
+            ID
+            Author{
+            Name
+            }
+            Title
+        }
+    }
+`
