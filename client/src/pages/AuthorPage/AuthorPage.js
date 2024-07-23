@@ -1,14 +1,27 @@
 import React, {useState} from "react";
 import { updateAuthorDetails, deleteAuthorDetails } from "../../GraphQL/mutations";
-import { useMutation } from "@apollo/client";
+import { loadAuthors } from "../../GraphQL/queries";
+import { useQuery, useMutation } from "@apollo/client";
 import "./AuthorPage.css"
 import AuthorImage from './author.png'
 import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 
-export function AuthorPage({name}) {
-    const [Name, setName] = useState("")
+export function AuthorPage() {
     const aID = parseInt(useParams().aID)
-    console.log(aID)
+    const {error, loading, data} = useQuery(loadAuthors, {
+        variables:{
+            id: aID,
+        }
+    });
+    const [Name, setName] = useState("")
+    useEffect(() => {
+        if (data){
+            console.log(data)
+            setName(data.authors[0].Name);
+        }
+    }, [data]);
+    console.log(aID, Name)
 
     const [updateAuthor, {updateError}] = useMutation(updateAuthorDetails)
     const [deleteAuthor, {deleteError}] = useMutation(deleteAuthorDetails)
@@ -40,7 +53,7 @@ export function AuthorPage({name}) {
 
     return (
         <div className="author-card">
-            <img src={AuthorImage} alt={`${name} image`} className="author-image" />
+            <img src={AuthorImage} alt={`${Name} image`} className="author-image" />
             <div className="author-details-group">
                 <label htmlFor="id">ID: </label>
                 <input
@@ -53,7 +66,7 @@ export function AuthorPage({name}) {
                 <input
                     type="text"
                     id="name"
-                    value={name}
+                    value={Name}
                     placeholder="Enter Author name"
                     onChange={(e)=> {
                         setName(e.target.value)

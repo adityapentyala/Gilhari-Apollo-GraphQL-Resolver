@@ -15,8 +15,8 @@ export const loadBooks = gql`
 `
 
 export const loadAuthors = gql`
-    query{
-        authors{
+    query authors($id: Int, $name: String){
+        authors(ID: $id, Name: $name){
             ID
             Name
         }
