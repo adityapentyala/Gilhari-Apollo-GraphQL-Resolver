@@ -33,7 +33,7 @@ export function NewBookPage(){
     return (
         <div className="book-input-card">
             <div className="book-input-group">
-                <label htmlFor="name">Title: </label>
+                <label htmlFor="Title">Title: </label>
                 <input
                     type="text"
                     id="Title"

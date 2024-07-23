@@ -39,3 +39,27 @@ export const newBook = gql`
         }
     }
 `
+
+export const updateBookDetails = gql`
+    mutation updateBook($id:Int!, $height: Int!, $auth_id: Int!, $genre:String!, 
+        $subGenre: String!, $title: String!,$publisher: String!){
+    updateBook(ID:$id, updations: {Auth_ID: $auth_id, Height: $height, Genre: $genre, 
+        SubGenre:$subGenre, Title: $title, Publisher: $publisher}){
+        Title
+        ID
+        Height
+        Publisher
+        Genre
+        SubGenre
+    }
+}
+`
+
+export const deleteBookDetails = gql`
+    mutation deleteBook($id: Int!){
+    deleteBook(ID: $id) {
+        Title
+        Genre
+    }
+}
+`

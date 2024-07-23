@@ -20,7 +20,9 @@ export function GetBooks(){
             books.map((book, index)=> {
                 console.log(book)
                 return (<div>
-                    <BookCard key={index} title={book.Title} author={book.Author.Name}></BookCard>
+                    <BookCard key={index} title={book.Title} author={book.Author.Name} 
+                    ID={book.ID} authID={book.Author.ID}>
+                    </BookCard>
                 </div>)
             }
         )}
