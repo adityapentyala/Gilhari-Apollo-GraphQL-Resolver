@@ -18,3 +18,14 @@
 .book-details {
     padding: 16px;
 }
+
+.book-title {
+    text-decoration: none;
+    font-size: large;
+    color: black;
+}
+
+.book-author {
+    text-decoration: none;
+    color: black;
+}

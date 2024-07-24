@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { newBook } from "../../GraphQL/mutations";
 import { useMutation } from "@apollo/client";
 import "./NewBookPage.css"
+import { Navbar } from "../../components/Navbar/Navbar";
 
 export function NewBookPage(){
     const [Title, setTitle] = useState("")
@@ -31,6 +32,8 @@ export function NewBookPage(){
     }
 
     return (
+        <div>
+        <Navbar />
         <div className="book-input-card">
             <div className="book-input-group">
                 <label htmlFor="Title">Title: </label>
@@ -89,6 +92,7 @@ export function NewBookPage(){
                 />
             </div>
             <button onClick={submit} className="submit-button">Submit</button>
+        </div>
         </div>
     )
 }

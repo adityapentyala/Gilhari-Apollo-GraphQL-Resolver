@@ -7,9 +7,9 @@ export function BookCard({title, author, ID, authID}) {
     return (<div className="book-card">
         <img src={bookCover} alt={`${title} cover`} className="book-image" />
         <div className="book-details">
-            <Link to={`/books/${ID}`}>{title}</Link>
+            <Link to={`/books/${ID}`} className="book-title">{title}</Link>
             <div>
-                <Link to={`/authors/${authID}`}><i>{author}</i></Link>
+                <Link to={`/authors/${authID}`} className="book-author"><i>{author}</i></Link>
             </div>
         </div>
     </div>)

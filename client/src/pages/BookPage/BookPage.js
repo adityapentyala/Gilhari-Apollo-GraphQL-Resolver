@@ -6,6 +6,7 @@ import "./BookPage.css"
 import BookImage from './book.png'
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
+import { Navbar } from "../../components/Navbar/Navbar";
 
 export function BookPage() {
     const bID = parseInt(useParams().bID)
@@ -68,6 +69,8 @@ export function BookPage() {
     }
 
     return (
+        <div>
+        <Navbar />
         <div className="book-card">
             <img src={BookImage} alt={`${Title} image`} className="book-image" />
             <div className="book-details-group">
@@ -150,6 +153,7 @@ export function BookPage() {
                 <button onClick={update} className="update-button">Update</button>
                 <button onClick={deleteFunction} className="delete-button">Delete</button>
             </div>
+        </div>
         </div>
     )
 }

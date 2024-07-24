@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { newAuthor } from "../../GraphQL/mutations";
 import { useMutation } from "@apollo/client";
 import "./NewAuthorPage.css"
+import { Navbar } from "../../components/Navbar/Navbar";
 
 export function NewAuthorPage(){
     const [Name, setName] = useState("")
@@ -21,6 +22,8 @@ export function NewAuthorPage(){
     }
 
     return (
+        <div>
+        <Navbar />
         <div className="author-input-card">
             <div className="author-input-group">
                 <label htmlFor="name">Name: </label>
@@ -34,6 +37,7 @@ export function NewAuthorPage(){
                 />
             </div>
             <button onClick={submit} className="submit-button">Submit</button>
+        </div>
         </div>
     )
 }
