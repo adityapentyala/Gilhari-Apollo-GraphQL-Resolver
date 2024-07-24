@@ -10,18 +10,22 @@
   "name": "gilhariapollographql",
   "version": "1.0.0",
   "main": "index.js",
-  "workspaces":[
+  "workspaces": [
     "server",
-    "client"  ],
+    "client"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/index.js",
-    "start-server":"npm --prefix server start",
-    "start-client":"npm --prefix client start"
+    "start-server": "npm --prefix server start",
+    "start-client": "npm --prefix client start"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "prettier": "3.3.3"
+  }
 }
