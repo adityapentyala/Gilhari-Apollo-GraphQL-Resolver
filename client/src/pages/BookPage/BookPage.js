@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { updateBookDetails, deleteBookDetails } from "../../GraphQL/mutations";
 import { loadBooks, loadAuthors } from "../../GraphQL/queries";
-import { useQuery, useMutation } from "@apollo/client";
+import { useQuery, useMutation, useLazyQuery } from "@apollo/client";
 import "./BookPage.css"
 import BookImage from './book.png'
 import { useParams } from "react-router-dom";
@@ -22,11 +22,12 @@ export function BookPage() {
     const [Height, setHeight] = useState("")
     const [Publisher, setPublisher] = useState("")
     const [AuthName, setAuthName] = useState("")
+
     useEffect(() => {
         if (data){
             console.log(data)
             setTitle(data.books[0].Title);
-            setAuthID(data.books[0].AuthID);
+            setAuthID(data.books[0].Author.ID);
             setGenre(data.books[0].Genre);
             setsubGenre(data.books[0].SubGenre);
             setHeight(data.books[0].Height);
@@ -38,7 +39,7 @@ export function BookPage() {
 
     const [updateBook, {updateError}] = useMutation(updateBookDetails)
     const [deleteBook, {deleteError}] = useMutation(deleteBookDetails)
-
+    
     const update = () => {
         console.log()
         updateBook({
@@ -71,6 +72,8 @@ export function BookPage() {
     return (
         <div>
         <Navbar />
+        <h2 className="page-heading">Edit Book: {Title}</h2>
+        <div className="content">
         <div className="book-card">
             <img src={BookImage} alt={`${Title} image`} className="book-image" />
             <div className="book-details-group">
@@ -96,7 +99,7 @@ export function BookPage() {
                     type="number"
                     id="AuthID"
                     placeholder="Enter Author ID"
-                    value={AuthID}
+                    value={parseInt(AuthID)}
                     onChange={(e)=> {
                         setAuthID(parseInt(e.target.value));
                     }}
@@ -153,6 +156,7 @@ export function BookPage() {
                 <button onClick={update} className="update-button">Update</button>
                 <button onClick={deleteFunction} className="delete-button">Delete</button>
             </div>
+        </div>
         </div>
         </div>
     )

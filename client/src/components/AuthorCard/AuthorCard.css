@@ -18,3 +18,9 @@
 .author-details {
     padding: 16px;
 }
+
+.author-name {
+    text-decoration: none;
+    font-size: large;
+    color: black;
+}

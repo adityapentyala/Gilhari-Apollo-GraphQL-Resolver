@@ -7,12 +7,13 @@ import { NewBookPage } from './pages/NewBookPage/NewBookPage.js'
 import { AuthorPage } from './pages/AuthorPage/AuthorPage.js'
 import { BookPage } from './pages/BookPage/BookPage.js'
 import { Navbar } from './components/Navbar/Navbar.js';
+import { HomePage } from './pages/HomePage/HomePage.js';
 
 function App() {
   return (
     <>
       <Routes>
-        <Route path='/' element={<Navbar />}></Route>
+        <Route path='/' element={<HomePage />}></Route>
         <Route path='/books' element={<BooksPage />}></Route>
         <Route path='/authors' element={<AuthorsPage />}></Route>
         <Route path='/newAuthor' element={<NewAuthorPage />}></Route>

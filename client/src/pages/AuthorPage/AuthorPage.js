@@ -55,6 +55,8 @@ export function AuthorPage() {
     return (
         <div>
             <Navbar />
+            <h2 className="page-heading">Edit Author: {Name}</h2>
+            <div className="content">
             <div className="author-card">
                 <img src={AuthorImage} alt={`${Name} image`} className="author-image" />
                 <div className="author-details-group">
@@ -80,6 +82,7 @@ export function AuthorPage() {
                     <button onClick={update} className="update-button">Update</button>
                     <button onClick={deleteFunction} className="delete-button">Delete</button>
                 </div>
+            </div>
             </div>
         </div>
     )
