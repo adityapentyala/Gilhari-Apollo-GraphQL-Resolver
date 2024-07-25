@@ -34,6 +34,9 @@ export function NewBookPage(){
     return (
         <div>
         <Navbar />
+        <div className="heading-group">
+            <h1 className="page-heading">New Book</h1>
+        </div>
         <div className="book-input-card">
             <div className="book-input-group">
                 <label htmlFor="Title">Title: </label>

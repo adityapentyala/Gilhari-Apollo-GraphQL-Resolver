@@ -24,6 +24,9 @@ export function NewAuthorPage(){
     return (
         <div>
         <Navbar />
+        <div className="heading-group">
+            <h1 className="page-heading">New Author</h1>
+        </div>
         <div className="author-input-card">
             <div className="author-input-group">
                 <label htmlFor="name">Name: </label>
