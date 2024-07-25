@@ -10,3 +10,4 @@
 *.db
 *.db-journal
 client/node_modules
+server/node_modules
