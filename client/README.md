@@ -15,10 +15,16 @@ You may also see any lint errors in the console.
 The client exposes a minimal React site at http://localhost:3000 where users may perform CRUD operations on the `Book` and `Author` data in the SQLite database. \
 Currently, the following routes and pages are present:
 ### http://localhost:3000/ (root)
-Renders the Homepage (currently set to BooksPage)
-### http://localhost:3000/books
-Renders the BooksPage that displays all books
-### http://localhost:3000/authors
-Renders the AuthorsPage that displays all authors
+Renders the Homepage 
+### http://localhost:3000/books?query=
+Renders the BooksPage that displays all books with titles/author names matching the search query
+### http://localhost:3000/newBook
+Renders the AddBookPage that allows one to add a new book
+### http://localhost:3000/books/{bid}
+Renders the edit page for a book with ID `bid`
+### http://localhost:3000/authors?query=
+Renders the AuthorsPage that displays all authors with names matching the search query
 ### http://localhost:3000/newAuthor
 Renders the AddAuthorPage that allows one to add a new author
+### http://localhost:3000/authors/{aid}
+Renders the edit page for an auther with ID `aid`
