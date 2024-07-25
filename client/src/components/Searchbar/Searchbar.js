@@ -13,7 +13,6 @@ export function Searchbar({ search, updateSearch, submitSearch }){
             <input id="search" className="search-input"
             onChange={(e) => updateSearch(e.target.value)}
             type="string"
-            value={search}
             />
             <button id="search" className="search-button" onClick={submit}>
             &#x1F50E;
