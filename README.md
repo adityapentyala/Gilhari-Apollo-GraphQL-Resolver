@@ -45,3 +45,14 @@ This would be a textbook case of the N+1 problem - 1 request for N books, and N 
 ![alt text](assets/nplus1_2.png)
 This effectively makes systems using Gilhari more performant by reducing the number of requests made for complex queries.
 
+# Quick Demo of Features
+## Overview of site
+![alt text](assets/demogif1.gif)
+## Searching
+![alt text](assets/demogif2_search.gif)
+![alt text](assets/demogif3_search.gif)
+## Creating a new book
+![alt text](assets/demogif4_create.gif)
+## Updating & deleting the new book
+![alt text](assets/demogif5_update_delete.gif)
+#### Note: Authors can also be created, updated and deleted in the same manner

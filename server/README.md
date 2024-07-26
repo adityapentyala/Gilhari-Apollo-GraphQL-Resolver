@@ -2,7 +2,7 @@
 
 ## Steps to run
 Run the command `npm start` or `npm run start-server` to expose the server at http://localhost:4000. You may run queries in the interactive playground provided by opening the link in a browser.
-![Apollo Playground at localhost:4000](assets/server.png)
+![Apollo Playground at localhost:4000](../assets/server.png)
 
 ## Example Queries & Mutations for CRUD Operations
 ### Read
